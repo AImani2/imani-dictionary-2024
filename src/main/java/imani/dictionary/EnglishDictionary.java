@@ -65,11 +65,4 @@ public class EnglishDictionary {
         // lets figure out how to use it.
     }
 
-    public static void main(String[] args) throws CsvValidationException, IOException {
-        EnglishDictionary dictionary = new EnglishDictionary();
-
-        // Use the instance to call getDefinition
-        List<String> wordDefinitions = dictionary.getDefinition("word");
-    }
-
 }

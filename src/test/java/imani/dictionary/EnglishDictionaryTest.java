@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.List;
 
+import static org.testng.AssertJUnit.assertEquals;
+
 //import static org.junit.jupiter.api.Assertions.*;
 
 class EnglishDictionaryTest {
@@ -19,10 +21,11 @@ class EnglishDictionaryTest {
         EnglishDictionary dictionary = new EnglishDictionary();
 
         // when
-        List<String> definitions = dictionary.getDefinition("");
+        List<String> definitions = dictionary.getDefinition("Aback");
 
         // then
-        //assert...
+        // how do I want this to be returned?
+        assertEquals("Toward the back or rear; backward.\nBehind; in the rear.\nBackward against the mast; -- said of the sails when pressed by the wind.\nAn abacus.", dictionary.getDefinition("Aback"));
     }
 
 }

@@ -58,9 +58,10 @@ public class DictionaryFrame extends JFrame {
             EnglishDictionary dictionary = new EnglishDictionary(
             );
 
-            dictionary.getDefinition(wordField.getText());
+            ;
+            String result = String.join("\n", dictionary.getDefinition(wordField.getText()));
             // this returns a list and I want to print it into the textfield as a string
-            //defintionField.setText();
+            defintionField.setText(result);
 
         }
 }
