@@ -26,7 +26,8 @@ package imani.dictionary;
  */
 public class EnglishDictionary {
 
-    public EnglishDictionary() throws CsvValidationException, IOException {
+    ArrayList<String[]> csvToArray = new ArrayList<>();
+    public EnglishDictionary() throws CsvValidationException, IOException { // do I always need to have these exceptions?
         // gets the file from the "resources" directory
         InputStream in = EnglishDictionary.class.getResourceAsStream(
                 "englishDictionary.csv");
@@ -35,13 +36,7 @@ public class EnglishDictionary {
         String[] record = null;
 
         while ((record = reader.readNext()) != null) {
-            // record is ONE line of the CSV
-            // is it already in its array and all I have to do is access the word at record[0]?
-            // compare the word here to the word on the line
-            // what am i doing here? am i using this as a for loop to store all the lines somewhere else or am i doing the
-            // comparison here?
-            String currentWord = record[0];
-            String currentDefintion = record[2];
+            csvToArray.add(record);
         }
 
         reader.close();
@@ -53,10 +48,14 @@ public class EnglishDictionary {
      */
     public List<String> getDefinition(String word) {
         List<String> definitions = new ArrayList<>();
-        if () {
-
+        for (String[] currentWord : csvToArray ) {
+            if (currentWord[0].equalsIgnoreCase(word)) {
+                definitions.add(currentWord[2]);
+            }
         }
-        return definitions//this method takes the word and gets the definition
+        System.out.println(definitions);
+        return definitions;
+        //this method takes the word and gets the definition
         //return it in a list
         //make a GUI
         // then read through each line and find the word i put in
