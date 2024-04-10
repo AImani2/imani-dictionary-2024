@@ -18,6 +18,7 @@ package imani.dictionary;
         import java.io.IOException;
         import java.io.InputStream;
         import java.io.InputStreamReader;
+        import java.util.ArrayList;
         import java.util.List;
 
 /**
@@ -35,6 +36,12 @@ public class EnglishDictionary {
 
         while ((record = reader.readNext()) != null) {
             // record is ONE line of the CSV
+            // is it already in its array and all I have to do is access the word at record[0]?
+            // compare the word here to the word on the line
+            // what am i doing here? am i using this as a for loop to store all the lines somewhere else or am i doing the
+            // comparison here?
+            String currentWord = record[0];
+            String currentDefintion = record[2];
         }
 
         reader.close();
@@ -45,7 +52,25 @@ public class EnglishDictionary {
      * @return a List of definitions, or an empty list if the word doesn't exist.
      */
     public List<String> getDefinition(String word) {
+        List<String> definitions = new ArrayList<>();
+        if () {
 
+        }
+        return definitions//this method takes the word and gets the definition
+        //return it in a list
+        //make a GUI
+        // then read through each line and find the word i put in
+        //return the list of the definitions
+        // how do I access englishdictionary from here?
+        // its a class - or a constructor?
+        // lets figure out how to use it.
+    }
+
+    public static void main(String[] args) throws CsvValidationException, IOException {
+        EnglishDictionary dictionary = new EnglishDictionary();
+
+        // Use the instance to call getDefinition
+        List<String> wordDefinitions = dictionary.getDefinition("word");
     }
 
 }
