@@ -1,13 +1,3 @@
-//package imani.dictionary;
-//
-//import java.util.List;
-//
-//public class EnglishDictionary {
-//    public List<String> getDefinition(String word) {
-//        // takes a word and returns a list of definitions or an empty list if no definitions
-//    }
-//}
-//have to read the file IN THE CONSTRUCTOR.
 
 package imani.dictionary;
 
