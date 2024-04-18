@@ -20,7 +20,7 @@ public class EnglishDictionary {
     public EnglishDictionary() throws CsvValidationException, IOException { // do I always need to have these exceptions?
         // gets the file from the "resources" directory
         InputStream in = EnglishDictionary.class.getResourceAsStream(
-                "englishDictionary.csv");
+                "/englishDictionary.csv");
 
         CSVReader reader = new CSVReader(new InputStreamReader(in));
         String[] record = null;
