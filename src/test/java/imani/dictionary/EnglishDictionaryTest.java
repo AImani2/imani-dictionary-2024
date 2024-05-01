@@ -4,12 +4,13 @@
 package imani.dictionary;
 
 import com.opencsv.exceptions.CsvValidationException;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 
 import java.io.IOException;
 import java.util.List;
 
-import static org.testng.AssertJUnit.assertEquals;
 
 class EnglishDictionaryTest {
 
@@ -23,7 +24,13 @@ class EnglishDictionaryTest {
 
         // then
         // how do I want this to be returned?
-        assertEquals("Toward the back or rear; backward.\nBehind; in the rear.\nBackward against the mast; -- said of the sails when pressed by the wind.\nAn abacus.", dictionary.getDefinition("Aback"));
+        Assertions.assertEquals("Toward the back or rear; backward.", definitions.get(0));
+        Assertions.assertEquals("Behind; in the rear.", definitions.get(1));
+        Assertions.assertEquals("Backward against the mast; -- said of the sails when pressed by the wind.", definitions.get(2));
+        Assertions.assertEquals("An abacus.", definitions.get(3));
     }
 
 }
+
+// have to test the contents of the list
+// multiple assertion lines

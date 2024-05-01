@@ -11,17 +11,29 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 public class DictionaryFrame extends JFrame {
     private final JTextField wordField;
-    private final JTextField defintionField;
+    private final JTextArea defintionField;
+
+    EnglishDictionary dictionary;
 
 
     public DictionaryFrame() {
         setSize(1000, 600);
         setTitle("English Dictionary");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        try {
+            dictionary =  new EnglishDictionary();
+        } catch (CsvValidationException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         JPanel main = new JPanel();
         main.setLayout(new BorderLayout());
@@ -38,27 +50,26 @@ public class DictionaryFrame extends JFrame {
             north.add(wordField);
             //wordField.setPreferredSize();
 
-            defintionField = new JTextField();
+            defintionField = new JTextArea();
             main.add(defintionField);
 
-            wordField.addActionListener(e -> {
-                try {
-                    updateDictionary();
-                } catch (CsvValidationException ex) {
-                    throw new RuntimeException(ex);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+            wordField.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyReleased(KeyEvent e) {
+                    super.keyReleased(e);
+                    try {
+                        updateDictionary();
+                    } catch (CsvValidationException ex) {
+                        throw new RuntimeException(ex);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             });
-
-
         }
 
         public void updateDictionary() throws CsvValidationException, IOException {
-            EnglishDictionary dictionary = new EnglishDictionary(
-            );
 
-            ;
             String result = String.join("\n", dictionary.getDefinition(wordField.getText()));
             // this returns a list and I want to print it into the textfield as a string
             defintionField.setText(result);
