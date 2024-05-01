@@ -24,8 +24,8 @@ class EnglishDictionaryTest {
         // how do I want this to be returned?
         Assertions.assertEquals("Toward the back or rear; backward.", definitions.get(0));
         Assertions.assertEquals("Behind; in the rear.", definitions.get(1));
-        Assertions.assertEquals("Backward against the mast; " +
-                "-- said of the sails when pressed by the wind.", definitions.get(2));
+        Assertions.assertEquals("Backward against the mast; "
+                + "-- said of the sails when pressed by the wind.", definitions.get(2));
         Assertions.assertEquals("An abacus.", definitions.get(3));
     }
 
