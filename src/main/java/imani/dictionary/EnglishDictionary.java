@@ -14,10 +14,12 @@ package imani.dictionary;
 /**
  * Reads the englishDictionary file ONCE.
  */
+
 public class EnglishDictionary {
 
     ArrayList<String[]> csvToArray = new ArrayList<>();
-    public EnglishDictionary() throws CsvValidationException, IOException { // do I always need to have these exceptions?
+
+    public EnglishDictionary() throws CsvValidationException, IOException {
         // gets the file from the "resources" directory
         InputStream in = EnglishDictionary.class.getResourceAsStream(
                 "/englishDictionary.csv");
@@ -38,7 +40,7 @@ public class EnglishDictionary {
      */
     public List<String> getDefinition(String word) {
         List<String> definitions = new ArrayList<>();
-        for (String[] currentWord : csvToArray ) {
+        for (String[] currentWord : csvToArray) {
             if (currentWord[0].equalsIgnoreCase(word)) {
                 definitions.add(currentWord[2]);
             }
